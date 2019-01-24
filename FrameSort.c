@@ -86,7 +86,7 @@ void askUserInput(){
 	for(int i=0;i<nf;i++)
 	{
 		scanf("%d",&ch);
-		tempf[ch-1]=orig[i];
+		tempf[i]=orig[ch-1];
 	}
 	orig=tempf;		
 }
@@ -143,6 +143,7 @@ void main(){
 	printFrames(orig,nf);
 	
 	displayMsg();
-
+char t;
+	scanf("%c",&t);
 	
 }
