@@ -51,7 +51,9 @@ void askUserFrames(){
 	{
 		orig[i].no=i;
 		printf("Enter details of frame%d:",i+1);
-		scanf("%s",temp);
+		char t[MAX];
+		scanf("%d",t);
+		scanf("%[^\n]",temp);
 		strcpy(orig[i].data,temp);
 	}
 }
@@ -111,7 +113,8 @@ void main(){
 		case 1:
 			//Ask user for single String.
 			printf("Enter complete message:");
-			scanf("%s",msg);
+			scanf("%d",temp);
+			scanf("%[^\n]",msg);
 			divide();									
 			break;
 		case 2:
