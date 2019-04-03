@@ -33,7 +33,8 @@ $ns attach-agent $n2 $sink
 $ns connect $tcp $sink
 set ftp [new Application/FTP]
 $ftp attach-agent $tcp
-$tcp set packetSize_ 1000
+
+
 
 set tcp1 [new Agent/TCP]
 $ns attach-agent $n1 $tcp1

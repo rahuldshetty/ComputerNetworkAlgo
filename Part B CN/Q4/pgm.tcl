@@ -49,9 +49,9 @@ $ns attach-agent $n4 $p4
 $ns attach-agent $n5 $p5
 $ns attach-agent $n6 $p6
 
-$ns queue-limit $n0 $n4 3
-$ns queue-limit $n0 $n5 2
-$ns queue-limit $n0 $n6 2
+$ns queue-limit $n0 $n4 1
+$ns queue-limit $n0 $n5 1
+$ns queue-limit $n0 $n6 1
 
 
 $ns connect $p1 $p4
