@@ -3,12 +3,12 @@ tcp=0;
 udp=0;
 }
 {
-event = $5;
-if(event=="cbr")
+event = $5; action=$1;
+if(event=="cbr" && ( action=="r" || action=="d" ) )
 {
 udp++;
 }
-if(event=="tcp")
+if(event=="tcp" && ( action=="r" || action=="d" ))
 {
 tcp++;
 }

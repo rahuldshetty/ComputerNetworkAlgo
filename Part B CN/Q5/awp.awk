@@ -1,31 +1,26 @@
 BEGIN {
-sSize = 0;
-startTime = 5.0;
-stopTime = 0.1;
-Tput = 0;
+     last = 0
+     tcp_sz = 0
 }
 {
-event = $1;
-time = $2;
-size = $6;
-if(event == "+")
-{
-if(time < startTime)
-{
-startTime = time;
-}
-}
-if(event == "r")
-{
-if(time > stopTime)
-{
-stopTime = time;
-}
-sSize += size;
-}
-Tput = (sSize / (stopTime-startTime))*(8/1000);
-print time , Tput >> "xar.tr" ;
-printf("%f\t%.2f\n", time, Tput);
-}
+   action = $1;
+   time = $2;
+   to = $4;
+   type = $5;
+   pktsize = $6;
+	
+	if (type == "tcp" && action == "r" && to == "3" ) 
+                    tcp_sz += pktsize
+  
+     #every second
+     if (time - 1 > last) {
+            last = time
+            print time , (tcp_sz * 8 / 1000000 ) >>  "tcp.tr"
+     }
+
+ }
 END {
-}
+            print time , (tcp_sz * 8 / 1000000 ) >> "tcp.tr"
+ }
+
+
